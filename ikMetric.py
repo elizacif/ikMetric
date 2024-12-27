@@ -175,7 +175,7 @@ window.geometry('740x400')
 window.resizable(False, False)
 window.title('ikMetric')
 
-bgimage = tk.PhotoImage(file=r'C:\Users\Eliza\Documents\11kl\Python\ikMetricX\bg.png')
+bgimage = tk.PhotoImage(file='bg.png')
 window.iconbitmap(default='icon.ico')
 
 default_font = font.nametofont('TkDefaultFont')
