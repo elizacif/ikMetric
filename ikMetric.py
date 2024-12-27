@@ -147,7 +147,7 @@ def show_results():
         rez_label = tk.Label(rez_skats, text=f"""Oof... you've earned a total of {points} points - {points*10}% Correct :°/""", bg='#f0d3c1')
         try_again = tk.Label(rez_skats, text='Want to try again?', bg='#f0d3c1', width=18)
 
-    elif points > 10:
+    elif points > 9:
         rez_label = tk.Label(rez_skats, text=f"""Congrats! You're a real pro B°) 
 You earned a total of {points} points - {points*10}% Correct!!""", bg='#f0d3c1')
         try_again = tk.Label(rez_skats, text='Restart quiz?', bg='#f0d3c1', width=18)
