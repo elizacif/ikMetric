@@ -111,10 +111,13 @@ def show_question():
     jaut_label = tk.Label(jaut_skats, text=f'{jaut_num}. {jaut}', bg='#f0d3c1')
     jaut_label.grid(row=6, column=0, columnspan=3, sticky='swe', padx=30)
 
+    ans_range = atbildes[seciba[jaut_num-1] * 3: seciba[jaut_num-1] * 3 + 3]
+    random.shuffle(ans_range)
     for i in range(3):
-        ans = atbildes[(seciba[jaut_num-1] * 3) + i]
-        ans_button = tk.Button(jaut_skats, text=ans, height=1, width=20,  command=lambda ans=ans: check_answer(ans), bg='#f0d3c1', bd=0, activebackground='#f6c8b9')
+        ans = ans_range[i]
+        ans_button = tk.Button(jaut_skats, text=ans, height=1, width=20,  command=lambda ans=ans: check_answer(ans), bg='#f6c8b9', bd=0, activebackground='#f5a7a5')
         ans_button.grid(row=7, column=i, sticky='nwe', padx=10, pady=10)
+        hover_change(ans_button, '#f4b79f', '#f6c8b9')
 def check_answer(answer):
     global points, jaut_num
     for i in jaut_skats.grid_slaves():
@@ -155,23 +158,31 @@ You've earned a total of {points} points - {points*10}% Correct :°)""", bg='#f0
         
     rez_label.grid(row=5, column=0, columnspan=2)
     try_again.grid(row=6, column=0, columnspan=2, sticky='s')
-    yes = tk.Button(rez_skats, text='Yes, please', command= lambda: [restart(), skata_maina(rez_skats, jaut_skats), show_question()], width=11, bg='#f0d3c1', bd=0, activebackground='#f6c8b9')
+    yes = tk.Button(rez_skats, text='Yes, please', command= lambda: [restart(), skata_maina(rez_skats, jaut_skats), show_question()], width=11, bg='#f6c8b9', bd=0, activebackground='#f5a7a5')
     yes.grid(row=7, column=0, sticky='ne', padx=10, pady=10)
-    no = tk.Button(rez_skats, text='No, thanks', command= lambda: window.destroy(), width=11, bg='#f0d3c1', bd=0, activebackground='#f6c8b9')
+    hover_change(yes, '#f4b79f', '#f6c8b9')
+    no = tk.Button(rez_skats, text='No, thanks', command= lambda: window.destroy(), width=11, bg='#f6c8b9', bd=0, activebackground='#f5a7a5')
     no.grid(row=7, column=1, sticky='nw', padx=10, pady=10)
+    hover_change(no, '#f4b79f', '#f6c8b9')
+
+def hover_change(btn, hovercolor, leavecolor):
+    btn.bind('<Enter>', func=lambda e: btn.config(bg= hovercolor))
+
+    btn.bind('<Leave>', func=lambda e: btn.config(bg= leavecolor))
 
 window = tk.Tk()
 window.geometry('740x400')
 window.resizable(False, False)
 window.title('ikMetric')
 
-bgimage = tk.PhotoImage(file='bglow.png')
+bgimage = tk.PhotoImage(file=r'C:\Users\Eliza\Documents\11kl\Python\ikMetricX\bg.png')
+window.iconbitmap(default='icon.ico')
 
 default_font = font.nametofont('TkDefaultFont')
 default_font.config(family='Segoe Script', size=12)
 window.option_add('*Font', default_font)
-window.option_add('*Foreground', '#402E2C')
-window.option_add('*activeForeground', '#402E2C')
+window.option_add('*Foreground', '#351b28')
+window.option_add('*activeForeground', '#860043')
 
 #----- sākuma skats
 sak_skats = tk.Frame(window)
@@ -185,9 +196,9 @@ bg_label.grid(row=0, rowspan=6)
 
 title = tk.Label(sak_skats, text="Let's test your unit conversion knowledge!", bg='#f0d3c1')
 title.grid(row=4, pady=10, sticky='s')
-start = tk.Button(sak_skats, text='Start!', command=lambda: [skata_maina(sak_skats, jaut_skats), show_question()], bg='#f0d3c1', bd=0, activebackground='#f6c8b9')
+start = tk.Button(sak_skats, text='Start!', command=lambda: [skata_maina(sak_skats, jaut_skats), show_question()], bg='#f6c8b9', bd=0, activebackground='#eeb2ad')
 start.grid(row=5, sticky='nwe', padx=300)
-
+hover_change(start, '#f4b79f', '#f6c8b9')
 #----- citi skati
 jaut_skats = tk.Frame(window)
 rez_skats = tk.Frame(window)
