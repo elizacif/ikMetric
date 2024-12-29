@@ -9,4 +9,7 @@ Ne visām receptēm tiek piedāvāta mērvienību automātiska pārveidošana, t
 
 ### Programmas izstrāde
 ikMetric izstrādāta 2024.gada decembrī Python valodā, izmantojot VisualStudioCode izstrādes rīku.
-Izmantota tkinter bibliotēka
+Izmantota tkinter bibliotēka. 
+
+
+Programmas pavadošo dokumentu izstrādē iedvesmojos no Rīgas Tālmācības Vidusskolas programmēšanas pasniedzējas Intas Znotiņas mācību nolūkiem sagatavotā piemēra, galvenokārt dokumentu struktūras un teksta formatēšanas ziņā.
